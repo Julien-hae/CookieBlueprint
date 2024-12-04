@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "esta-python-cookiecutter"
+name = "python-cookiecutter"
 version = "0.0.0" # Version is ignored and set by Tekton. Use pipeline to increase.
 description = "Cookiecutter template for a basic python codebase"
-authors = ["Markus Neuenschwander <markus.neuenschwander@sbb.ch>", "Reto Schiegg <reto.schiegg@sbb.ch>", "Ferdinand Niedermann <ferdinand.niedermann@sbb.ch>"]
-repository = "https://code.sbb.ch/projects/KD_ESTA_BLUEPRINTS/repos/esta-python-cookiecutter"
-documentation = "https://code.sbb.ch/projects/KD_ESTA_BLUEPRINTS/repos/esta-python-cookiecutter/browse/README.md"
+authors = ["Haefelin Julien <julien.haefelin@gmail.com>"]
+repository = "https://github.com/Julien-hae/CookieBlueprint.git"
+documentation = "https://github.com/Julien-hae/CookieBlueprint/blob/master/README.md"
 readme = "README.md"
 package-mode = false
 
