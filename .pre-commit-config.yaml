@@ -27,14 +27,14 @@ repos:
         require_serial: true
         language: python
         types_or: [cython, pyi, python]
-        exclude: ^{{ cookiecutter.name }}/
+        exclude: ^{{ cookiecutter.slugname }}/
         args: ['--filter-files']
 
       - id: black
         name: black
         entry: black
         language: python
-        exclude: ^{{ cookiecutter.name }}/
+        exclude: ^{{ cookiecutter.slugname }}/
         files: '\.py$'
 
       - id: unittest-run

@@ -7,7 +7,7 @@ This is a blueprint for Python based projects. It exemplifies a setup and projec
 
 ## Getting Started
 
-- Create a new project on [SonarQube](https://codequality.sbb.ch/projects/create) with the "Project key" `{{ cookiecutter.name }}` and "Display name" `{{ cookiecutter.project_name }}`.
+- Create a new project on [SonarQube](https://codequality.sbb.ch/projects/create) with the "Project key" `{{ cookiecutter.slugname }}` and "Display name" `{{ cookiecutter.project_name }}`.
 - Configure pylint profile for sonarproject by making [a pull-request at the sonarqube-config repo](https://code.sbb.ch/projects/KD_WZU/repos/sonarqube-config/browse/QualityProfiles/pylint) and adding the `sonar.projectKey` into the files.
 
 ## Setup
@@ -33,12 +33,12 @@ make
 {%- if cookiecutter.pypi_repository -%}
 ### As Shared Library
 
-Available versions can be seen in artifactory: <https://bin.sbb.ch/ui/repos/tree/General/{{ cookiecutter.pypi_repository }}/{{ cookiecutter.name }}>
+Available versions can be seen in artifactory: <https://bin.sbb.ch/ui/repos/tree/General/{{ cookiecutter.pypi_repository }}/{{ cookiecutter.slugname }}>
 
 Execute the following command to install the latest package:
 
 ```shell
-pip install {{ cookiecutter.name }} --no-cache-dir --index-url https://bin.sbb.ch/artifactory/api/pypi/{{ cookiecutter.pypi_repository }}/simple/ --trusted-host bin.sbb.ch
+pip install {{ cookiecutter.slugname }} --no-cache-dir --index-url https://bin.sbb.ch/artifactory/api/pypi/{{ cookiecutter.pypi_repository }}/simple/ --trusted-host bin.sbb.ch
 ```
 {% endif %}
 
@@ -49,7 +49,7 @@ If you take the docker image as is it will enable you to use defined entrypoints
 
 ```shell
 # docker run <path_to_image> <poetry command>
-docker run docker.bin.sbb.ch/{{ cookiecutter.docker_repository|replace('.docker', '') }}/{{ cookiecutter.name }}:<tag> entrypoint
+docker run docker.bin.sbb.ch/{{ cookiecutter.docker_repository|replace('.docker', '') }}/{{ cookiecutter.slugname }}:<tag> entrypoint
 ```
 
 Here, 'entrypoint' is the command name.
