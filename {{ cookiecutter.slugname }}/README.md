@@ -11,28 +11,38 @@ This is a basic project you can fork. So far, the only things it can do is just 
 
 ## Setup
 
-### Install WSL, Pyenv and Poetry
+## Setup
+### Install WSL
+If not already installed, install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+Once thise is done make sure you run the following command
 
-- If not already installed, install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
-    - Once thise is done make sure you run the following command
-    ```shell
-    # Update the package index and install the build-essential packace (C/C++ compiler, Make, Librariey like libc6-dev, etc):
-    sudo apt update
-    sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-    ```
+```shell
+ # Update the package index and install the build-essential packace (C/C++ compiler, Make, Librariey like libc6-dev, etc):
+sudo apt update
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+### Install Python
+If not already installed, install Python. The recommended way is to use [pyenv](https://github.com/pyenv/pyenv), which allows multiple parallel Python installations which can be automatically selected per project you're working on.
 
-- If not already installed, install [pyenv](https://github.com/pyenv/pyenv).
-
-- If not already installed, get Poetry using pipx according to <https://python-poetry.org/docs/#installation>. If your are new to Poetry, you may find <https://python-poetry.org/docs/basic-usage/> interesting.
+```shell
+# Install Python if necessary
+pyenv install 3.11
+pyenv shell 3.11
+```
+### Install Poetry
+If not already installed, get Poetry using pipx according to <https://python-poetry.org/docs/#installation>. If your are new to Poetry, you may find <https://python-poetry.org/docs/basic-usage/> interesting.
 
 ### Create Environment
-
 Execute the following in a terminal:
 ```shell
-# Create virtualenv, install all dependencies and pre-commit hooks in one command:
+# Create venv and install all dependencies
 make
+
+# Cleanup venv
+make clean
 ```
 Do not forget to activate your virtualenv when done with the makefile
+
 ## Usage
 
 ## Contents and Concepts

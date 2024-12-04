@@ -20,8 +20,9 @@ If not already installed, install Python. The recommended way is to use [pyenv](
 pyenv install 3.11
 pyenv shell 3.11
 ```
-### Install Python
+### Install Poetry
 If not already installed, get Poetry using pipx according to <https://python-poetry.org/docs/#installation>. If your are new to Poetry, you may find <https://python-poetry.org/docs/basic-usage/> interesting.
+
 ### Install Cookiecutter
 If not already installed get [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/index.html) according to <https://cookiecutter.readthedocs.io/en/stable/installation.html>.
 
@@ -40,9 +41,6 @@ make
 
 # Cleanup venv
 make clean
-
-# Cleanup
-make remove-rendered-template
 ```
 Do not forget to activate your virtualenv when done with the makefile
 ## Usage
