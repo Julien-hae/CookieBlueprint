@@ -7,9 +7,16 @@ This is a blueprint for Python based projects. It exemplifies a setup and projec
 
 ## Getting Started
 
+After runnig the Cookiecutter script, you'll have to create a repository to add your code to Github:
+```shell
+git init
+git add --all
+git commit -m "Initial commit"
+git remote add origin git@github.com:Julien-hae/{{ cookiecutter.slugname }}.git
+git branch -M master
+git push -u origin master
+```
 This is a basic project you can fork. So far, the only things it can do is just "Hello World" but you can call it directly in the terminal after the installation using the command `poetry run entrypoint -w World`
-
-## Setup
 
 ## Setup
 ### Install WSL
