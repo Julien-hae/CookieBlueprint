@@ -40,9 +40,6 @@ make
 
 # Cleanup venv
 make clean
-
-# Cleanup
-make remove-rendered-template
 ```
 Do not forget to activate your virtualenv when done with the makefile
 ## Usage
