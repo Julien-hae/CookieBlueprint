@@ -1,0 +1,14 @@
+{
+    "project_name": "ESTA Python",
+    "name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "package_name": "{{ cookiecutter.name|replace('-', '_') }}",
+    "description": "Blueprint for a basic Python codebase",
+    "author_first_name": "your-first-name",
+    "author_last_name": "your-last-name",
+    "author_email": "",
+    "authors": "[\"{{ cookiecutter.author_last_name }} {{ cookiecutter.author_first_name }} <{{ cookiecutter.author_email }}>\"]",
+    "bitbucket_organization": "",
+    "pypi_repository": "",
+    "docker_repository": "",
+    "python_version": ["3.11", "3.9"]
+}

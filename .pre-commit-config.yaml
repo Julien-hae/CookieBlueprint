@@ -1,0 +1,45 @@
+repos:
+  - repo: local
+    hooks:
+      - id: poetry-check
+        name: poetry-check
+        description: run poetry check to validate config
+        entry: poetry check
+        language: system
+        pass_filenames: false
+        files: (^|/)pyproject.toml$
+
+      - id: trailing-whitespace-fixer
+        name: trailing-whitespace-fixer
+        entry: trailing-whitespace-fixer
+        language: python
+        types: [text]
+
+      - id: end-of-file-fixer
+        name: end-of-file-fixer
+        entry: end-of-file-fixer
+        language: python
+        types: [text]
+
+      - id: isort
+        name: isort
+        entry: isort
+        require_serial: true
+        language: python
+        types_or: [cython, pyi, python]
+        exclude: ^{{ cookiecutter.name }}/
+        args: ['--filter-files']
+
+      - id: black
+        name: black
+        entry: black
+        language: python
+        exclude: ^{{ cookiecutter.name }}/
+        files: '\.py$'
+
+      - id: unittest-run
+        name: unittest-run
+        entry: coverage run
+        pass_filenames: false
+        language: system
+        files: '\.py$'

@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "esta-python-cookiecutter"
+version = "0.0.0" # Version is ignored and set by Tekton. Use pipeline to increase.
+description = "Cookiecutter template for a basic python codebase"
+authors = ["Markus Neuenschwander <markus.neuenschwander@sbb.ch>", "Reto Schiegg <reto.schiegg@sbb.ch>", "Ferdinand Niedermann <ferdinand.niedermann@sbb.ch>"]
+repository = "https://code.sbb.ch/projects/KD_ESTA_BLUEPRINTS/repos/esta-python-cookiecutter"
+documentation = "https://code.sbb.ch/projects/KD_ESTA_BLUEPRINTS/repos/esta-python-cookiecutter/browse/README.md"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "~3.11"
+cookiecutter = "~2.6"                               # A command-line utility that creates projects from project templates, e.g. creating a Python package project from a Python package project template.
+tomli = "~2.0"                                      # A lil' TOML parser
+pyyaml = "~6.0"                                     # YAML parser and emitter for Python
+
+[tool.poetry.group.dev.dependencies]
+black = "~24"                                       # The uncompromising code formatter.
+coverage = {extras = ["toml"], version = "~7.6.0"}    # Code coverage measurement for Python
+unittest-xml-reporting = "~3.2"                     # unittest-based test runner with Ant/JUnit like XML reporting.
+pre-commit = "~4.0.0"                                 # A framework for managing and maintaining multi-language pre-commit hooks.
+pre-commit-hooks = "~5.0.0"                           # Some out-of-the-box hooks for pre-commit.
+isort = "~5.13"                                     # Tool for reordering python imports
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.main]
+fail-on = "F,E,W"
+fail-under = 0.0
+
+[tool.pylint.basic]
+good-names = ["i", "j", "k", "n", "s", "d", "ex", "Run", "_", "pk", "x", "y", "df"]
+
+[tool.pylint.format]
+max-line-length = 140
+max-args = 8
+
+[tool.pylint.messages_control]
+disable = [
+    # pydocstyle takes care of this...
+    "missing-module-docstring",
+    "missing-function-docstring",
+    "missing-class-docstring",
+
+    # don't hinder me creating small classes!
+    "too-few-public-methods",
+
+    # reorder-python-imports should know what it's doing
+    "wrong-import-order",
+
+    # can't do much about duplicate imports in two files, I'm afraid...
+    "duplicate-code",
+]
+
+[tool.pylint.miscellaneous]
+notes = []  # don't warn about `TODO` and `FIXME` comments
+
+[tool.pylint.reports]
+output-format = "parseable:pylintout,text"
+
+[tool.pydocstyle]
+match-dir = "[^\\.][^test].*"
+convention = "google"
+
+[tool.coverage.run]
+command_line = "-m xmlrunner discover --output-file junittest.xml"
