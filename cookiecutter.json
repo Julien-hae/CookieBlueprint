@@ -1,6 +1,6 @@
 {
     "project_name": "Python Boilerplate",
-    "slugname": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "slugname": "{{ cookiecutter.project_name|replace(' ', '-') }}",
     "package_name": "{{ cookiecutter.slugname|replace('-', '_') }}",
     "description": "Blueprint for a basic Python codebase",
     "author_first_name": "your-first-name",
