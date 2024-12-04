@@ -1,4 +1,4 @@
-"""{{ cookiecutter.name }} main package.
+"""{{ cookiecutter.slugname }} main package.
 
 Add your package documentation here.
 """

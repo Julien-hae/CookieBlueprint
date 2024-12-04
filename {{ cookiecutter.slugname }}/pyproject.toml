@@ -1,11 +1,10 @@
 [tool.poetry]
-# we prefix the package name with `sbb-` to defend against dependency confusion, see https://confluence.sbb.ch/x/Fxa9lg
-name = "sbb-{{ cookiecutter.name }}"
+name = "{{ cookiecutter.slugname }}"
 version = "0.0.0" # Version is ignored and set by Tekton. Use pipeline to increase.
 description = "{{ cookiecutter.description }}"
 authors = {{ cookiecutter.authors }}
-repository = "https://code.sbb.ch/projects/{{ cookiecutter.bitbucket_organization }}/repos/{{ cookiecutter.name }}"
-documentation = "https://code.sbb.ch/projects/{{ cookiecutter.bitbucket_organization }}/repos/{{ cookiecutter.name }}/browse/README.md"
+repository = "https://github.com/Julien-hae/{{ cookiecutter.slugname }}.git"
+documentation = "https://github.com/Julien-hae/{{ cookiecutter.slugname }}/blob/master/README.md"
 packages = [{include = "{{ cookiecutter.package_name }}", from = "src"}]
 readme = "README.md"
 
