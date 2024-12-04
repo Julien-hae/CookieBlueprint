@@ -18,6 +18,3 @@ check: pyenv-exists poetry-exists
 pyenv-exists: ; @which pyenv > /dev/null
 
 poetry-exists: ; @which poetry > /dev/null
-
-remove-rendered-template:
-	rm -rf /tmp/esta-python
