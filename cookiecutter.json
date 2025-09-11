@@ -3,9 +3,9 @@
     "slugname": "{{ cookiecutter.project_name|replace(' ', '-') }}",
     "package_name": "{{ cookiecutter.slugname|replace('-', '_') }}",
     "description": "Blueprint for a basic Python codebase",
-    "author_first_name": "your-first-name",
-    "author_last_name": "your-last-name",
-    "author_email": "example@organisation.com",
+    "author_first_name": "Julien",
+    "author_last_name": "Haefelin",
+    "author_email": "jhaefelin-git@aliasdesk.ch",
     "authors": "[\"{{ cookiecutter.author_last_name }} {{ cookiecutter.author_first_name }} <{{ cookiecutter.author_email }}>\"]",
     "python_version": "3.11"
 }
