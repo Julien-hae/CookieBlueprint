@@ -21,6 +21,7 @@ unittest-xml-reporting = "~3.2"                     # unittest-based test runner
 pre-commit = "~4.0.0"                                 # A framework for managing and maintaining multi-language pre-commit hooks.
 pre-commit-hooks = "~5.0.0"                           # Some out-of-the-box hooks for pre-commit.
 isort = "~5.13"                                     # Tool for reordering python imports
+ruff = "^0.14.14"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

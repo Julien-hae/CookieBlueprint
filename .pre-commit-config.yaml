@@ -21,21 +21,29 @@ repos:
         language: python
         types: [text]
 
-      - id: isort
-        name: isort
-        entry: isort
-        require_serial: true
-        language: python
-        types_or: [cython, pyi, python]
-        exclude: ^{{ cookiecutter.slugname }}/
-        args: ['--filter-files']
+      - id: ruff_formatter
+        name: ruff_formatter
+        description: "Run 'ruff format' for extremely fast Python formatting"
+        entry: ruff format
+        args: ["--force-exclude"]
+        types_or: [python]
+        language: python
 
-      - id: black
-        name: black
-        entry: black
-        language: python
-        exclude: ^{{ cookiecutter.slugname }}/
-        files: '\.py$'
+      - id: ruff_linter
+        name: ruff_linter
+        description: "Run 'ruff' for extremely fast Python linting"
+        entry: ruff check
+        args:
+          [
+            "--force-exclude",
+            "--fix",
+            "--output-file",
+            "sonar_report.json",
+            "--output-format",
+            "json",
+          ]
+        types_or: [python]
+        language: python
 
       - id: unittest-run
         name: unittest-run
