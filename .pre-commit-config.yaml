@@ -25,9 +25,9 @@ repos:
         name: ruff_formatter
         description: "Run 'ruff format' for extremely fast Python formatting"
         entry: ruff format
-        # the template sources are Jinja, not Python: their pyproject.toml is not
-        # valid TOML and ruff would abort trying to read it as configuration
-        exclude: '^\{\{ cookiecutter\.slugname \}\}/'
+        # the template sources are Jinja, not Python: they reference variables
+        # that only exist once Copier has rendered them
+        exclude: '^template/'
         args: ["--force-exclude"]
         types_or: [python]
         language: python
@@ -36,7 +36,7 @@ repos:
         name: ruff_linter
         description: "Run 'ruff' for extremely fast Python linting"
         entry: ruff check
-        exclude: '^\{\{ cookiecutter\.slugname \}\}/'
+        exclude: '^template/'
         args:
           [
             "--force-exclude",

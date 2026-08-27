@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-cookiecutter"
+name = "cookieblueprint"
 version = "0.0.0" # Version is ignored and set by Tekton. Use pipeline to increase.
-description = "Cookiecutter template for a basic python codebase"
+description = "Copier template for a basic python codebase"
 authors = ["Haefelin Julien <julien.haefelin@gmail.com>"]
 repository = "https://github.com/Julien-hae/CookieBlueprint.git"
 documentation = "https://github.com/Julien-hae/CookieBlueprint/blob/master/README.md"
@@ -10,7 +10,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "~3.11"
-cookiecutter = "~2.6"                               # A command-line utility that creates projects from project templates, e.g. creating a Python package project from a Python package project template.
+copier = "~9.17"                                    # Library and CLI to render project templates and to keep generated projects up to date with the template.
 tomli = "~2.0"                                      # A lil' TOML parser
 pyyaml = "~6.0"                                     # YAML parser and emitter for Python
 
@@ -31,10 +31,9 @@ build-backend = "poetry.core.masonry.api"
 line-length = 88
 target-version = "py311"
 src = ["tests"]
-# The template directory holds Jinja, not Python: its pyproject.toml is not valid
-# TOML and would make ruff abort. Braces are escaped as character classes because
-# `{a,b}` is glob alternation.
-extend-exclude = ["[{][{] cookiecutter.slugname [}][}]"]
+# The template directory holds Jinja, not Python: `template/src/{{ package_name }}`
+# is not an importable path and the sources there do not parse as Python.
+extend-exclude = ["template"]
 
 [tool.ruff.lint]
 select = [

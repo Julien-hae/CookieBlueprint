@@ -5,9 +5,9 @@ clean:
 	rm -rf .venv
 
 setup_environment: check
-		pyenv install {{ cookiecutter.python_version }} --skip-existing \
-		&& pyenv local {{ cookiecutter.python_version }} \
-		&& poetry env use {{ cookiecutter.python_version }} \
+		pyenv install {{ python_version }} --skip-existing \
+		&& pyenv local {{ python_version }} \
+		&& poetry env use {{ python_version }} \
 		&& poetry install \
 		&& poetry run pre-commit install
 

@@ -1,15 +1,15 @@
 [tool.poetry]
-name = "{{ cookiecutter.slugname }}"
+name = "{{ slugname }}"
 version = "0.0.0" # Version is ignored and set by Tekton. Use pipeline to increase.
-description = "{{ cookiecutter.description }}"
-authors = {{ cookiecutter.authors }}
-repository = "https://github.com/Julien-hae/{{ cookiecutter.slugname }}.git"
-documentation = "https://github.com/Julien-hae/{{ cookiecutter.slugname }}/blob/master/README.md"
-packages = [{include = "{{ cookiecutter.package_name }}", from = "src"}]
+description = "{{ description }}"
+authors = ["{{ author_last_name }} {{ author_first_name }} <{{ author_email }}>"]
+repository = "https://github.com/Julien-hae/{{ slugname }}.git"
+documentation = "https://github.com/Julien-hae/{{ slugname }}/blob/master/README.md"
+packages = [{include = "{{ package_name }}", from = "src"}]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "~{{ cookiecutter.python_version }}"
+python = "~{{ python_version }}"
 numpy = "~1.26"                                     # NumPy is the fundamental package for array computing with Python.
 
 [tool.poetry.group.dev.dependencies]
@@ -21,7 +21,7 @@ ruff = "^0.14.14"                                   # Extremely fast Python lint
 mypy = "~1.8"                                       # Tool for static type-checking
 
 [tool.poetry.scripts]
-entrypoint = '{{ cookiecutter.package_name }}.main:cli'
+entrypoint = '{{ package_name }}.main:cli'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -31,7 +31,7 @@ build-backend = "poetry.core.masonry.api"
 # `ruff format` reformats to this width; black's default is kept so the migration
 # doesn't rewrap every existing file.
 line-length = 88
-target-version = "py{{ cookiecutter.python_version|replace('.', '') }}"
+target-version = "py{{ python_version|replace('.', '') }}"
 src = ["src", "tests"]
 
 [tool.ruff.lint]
@@ -58,7 +58,7 @@ convention = "google"
 max-args = 8
 
 [tool.ruff.lint.isort]
-known-first-party = ["{{ cookiecutter.package_name }}"]
+known-first-party = ["{{ package_name }}"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = [
@@ -67,7 +67,7 @@ known-first-party = ["{{ cookiecutter.package_name }}"]
 ]
 
 [tool.mypy]
-python_version = "{{ cookiecutter.python_version }}"
+python_version = "{{ python_version }}"
 plugins = "numpy.typing.mypy_plugin"
 strict = true
 

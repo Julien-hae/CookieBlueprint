@@ -1,0 +1,72 @@
+# Copier configuration for 🍪 CookieBlueprint.
+# See https://copier.readthedocs.io/en/stable/configuring/ for all available settings.
+
+_min_copier_version: "9.0.0"
+
+# Only this subdirectory is rendered into the generated project, so the files of
+# the template repository itself (README.md, copier.yml, Makefile, ...) stay out.
+_subdirectory: template
+
+# Copied into every generated project; `copier update` replays the answers from it.
+_answers_file: .copier-answers.yml
+
+_message_after_copy: |
+  "{{ project_name }}" has been generated.
+
+  Next steps:
+    1. cd {{ _copier_conf.dst_path }}
+    2. git init && git add --all && git commit -m "Initial commit"
+    3. make
+
+  Pull in later template changes with `copier update` from inside the project.
+
+_message_after_update: |
+  "{{ project_name }}" has been updated.
+
+  Review the changes with `git diff`. Files that could not be merged cleanly are
+  left with `<<<<<<< before updating` markers and are unmerged in the index:
+  resolve them, then `git add` them before committing.
+
+project_name:
+  type: str
+  help: Human readable name of the project
+  default: Python Boilerplate
+
+slugname:
+  type: str
+  help: Repository and distribution name (kebab-case)
+  default: "{{ project_name | replace(' ', '-') }}"
+
+package_name:
+  type: str
+  help: Importable Python package name (snake_case)
+  default: "{{ slugname | replace('-', '_') }}"
+  validator: >-
+    {% if not package_name.isidentifier() %}
+    package_name must be a valid Python identifier
+    {% endif %}
+
+description:
+  type: str
+  help: One-line description of the project
+  default: Blueprint for a basic Python codebase
+
+author_first_name:
+  type: str
+  help: First name of the author
+  default: Julien
+
+author_last_name:
+  type: str
+  help: Last name of the author
+  default: Haefelin
+
+author_email:
+  type: str
+  help: E-mail address of the author
+  default: jhaefelin-git@aliasdesk.ch
+
+python_version:
+  type: str
+  help: Python version the project targets
+  default: "3.11"

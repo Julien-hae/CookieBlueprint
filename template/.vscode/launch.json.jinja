@@ -16,7 +16,7 @@
             "name": "Python: Run Main with args",
             "type": "debugpy",
             "request": "launch",
-            "module": "{{ cookiecutter.package_name }}.main",
+            "module": "{{ package_name }}.main",
             "args": ["-w", "world"],
             "console": "integratedTerminal",
             "justMyCode": true
@@ -28,7 +28,7 @@
             "name": "Python: Main, prompt for args",
             "type": "debugpy",
             "request": "launch",
-            "module": "{{ cookiecutter.package_name }}.main",
+            "module": "{{ package_name }}.main",
             "args": ["${input:args}"],
             "console": "integratedTerminal",
             "justMyCode": true
