@@ -22,28 +22,32 @@ repos:
         types: [text]
 
       - id: ruff_formatter
-        name: ruff_formatter
-        description: "Run 'ruff format' for extremely fast Python formatting"
-        entry: ruff format
-        args: ["--force-exclude"]
-        types_or: [python]
-        language: python
+        name: ruff_formatter
+        description: "Run 'ruff format' for extremely fast Python formatting"
+        entry: ruff format
+        # the template sources are Jinja, not Python: their pyproject.toml is not
+        # valid TOML and ruff would abort trying to read it as configuration
+        exclude: '^\{\{ cookiecutter\.slugname \}\}/'
+        args: ["--force-exclude"]
+        types_or: [python]
+        language: python
 
-      - id: ruff_linter
-        name: ruff_linter
-        description: "Run 'ruff' for extremely fast Python linting"
-        entry: ruff check
-        args:
-          [
-            "--force-exclude",
-            "--fix",
-            "--output-file",
-            "sonar_report.json",
-            "--output-format",
-            "json",
-          ]
-        types_or: [python]
-        language: python
+      - id: ruff_linter
+        name: ruff_linter
+        description: "Run 'ruff' for extremely fast Python linting"
+        entry: ruff check
+        exclude: '^\{\{ cookiecutter\.slugname \}\}/'
+        args:
+          [
+            "--force-exclude",
+            "--fix",
+            "--output-file",
+            "sonar_report.json",
+            "--output-format",
+            "json",
+          ]
+        types_or: [python]
+        language: python
 
       - id: unittest-run
         name: unittest-run
